@@ -2346,3 +2346,415 @@ footer {
     }
 
 }
+/* ==================================================
+   FINAL MOBILE RESPONSIVE FIX
+   Keep this at the VERY END of style.css
+================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* ---------- HEADER ---------- */
+
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .nav-links {
+        position: fixed !important;
+        top: 0;
+        right: -100%;
+
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+
+        padding: 100px 30px;
+
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 25px;
+
+        background: #081220;
+
+        border-left: 1px solid rgba(148, 163, 184, 0.14);
+
+        transition: right 0.35s ease;
+
+        z-index: 1001;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .home {
+        width: 100%;
+        min-height: auto;
+
+        padding: 125px 20px 80px;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 45px;
+
+        text-align: center;
+    }
+
+    .home-content {
+        width: 100%;
+        max-width: 650px;
+
+        flex: none !important;
+    }
+
+    .eyebrow {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .home h1 {
+        font-size: clamp(42px, 12vw, 58px);
+
+        line-height: 1.05;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 20px;
+
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .home h1 span {
+        display: block;
+    }
+
+    .home h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 auto 24px;
+
+        font-size: 21px;
+
+        line-height: 1.5;
+    }
+
+    .title-divider {
+        display: inline;
+        margin: 0 5px;
+    }
+
+    .home-description {
+        width: 100%;
+        max-width: 600px;
+
+        margin: 0 auto 30px;
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        text-align: center;
+
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+
+    /* ---------- HERO BUTTONS ---------- */
+
+    .hero-actions {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-actions .btn {
+        min-width: 140px;
+    }
+
+    .resume-wrapper {
+        width: auto;
+    }
+
+
+    /* ---------- SOCIAL LINKS ---------- */
+
+    .hero-socials {
+        justify-content: center;
+
+        margin-top: 25px;
+    }
+
+
+    /* ---------- PROFILE IMAGE ---------- */
+
+    .home-image {
+        width: 100%;
+
+        min-height: auto;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+
+        padding: 15px 0 20px;
+    }
+
+    .profile-image-wrapper {
+        width: 260px;
+        height: 260px;
+
+        flex: 0 0 260px;
+    }
+
+    .profile-decoration {
+        width: 290px;
+        height: 290px;
+    }
+
+    .profile-code-tag {
+        right: calc(50% - 145px);
+        bottom: 10px;
+    }
+
+
+    /* ---------- GENERAL SECTIONS ---------- */
+
+    .section {
+        width: 100%;
+
+        padding: 80px 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .about-story {
+        padding: 25px;
+
+        width: 100%;
+    }
+
+
+    /* ---------- SKILLS ---------- */
+
+    .skills-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .professional-card {
+        grid-column: auto;
+    }
+
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+
+    /* ---------- EXPERIENCE ---------- */
+
+    .timeline {
+        width: 100%;
+
+        padding-left: 27px;
+    }
+
+    .timeline-dot {
+        left: -27px;
+    }
+
+    .experience-card {
+        width: 100%;
+
+        padding: 23px;
+    }
+
+    .experience-top {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .experience-category {
+        white-space: normal;
+    }
+
+
+    /* ---------- EDUCATION ---------- */
+
+    .education-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    /* ---------- LANGUAGES ---------- */
+
+    .language-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+
+
+/* ==================================================
+   SMALL MOBILE PHONES
+================================================== */
+
+@media screen and (max-width: 480px) {
+
+    .home {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .home h1 {
+        font-size: 42px;
+    }
+
+    .home h2 {
+        font-size: 19px;
+    }
+
+    .home-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .profile-image-wrapper {
+        width: 230px;
+        height: 230px;
+
+        flex-basis: 230px;
+    }
+
+    .profile-decoration {
+        width: 260px;
+        height: 260px;
+    }
+
+    .profile-code-tag {
+        right: calc(50% - 130px);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .resume-wrapper,
+    .resume-wrapper .btn {
+        width: 100%;
+    }
+
+    .resume-menu {
+        width: 100%;
+    }
+
+    .personal-details.open {
+        grid-template-columns: 1fr;
+    }
+
+    .language-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+}
+
+
+
