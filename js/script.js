@@ -294,50 +294,80 @@ sections.forEach(section => {
 
 
 /* ==================================================
-   CONTACT FORM
+   CONTACT FORM - FORMSPREE
 ================================================== */
 
-const contactForm =
-    document.getElementById("contactForm");
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
 
+if (contactForm) {
 
-contactForm.addEventListener("submit", event => {
+    contactForm.addEventListener("submit", async (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
+        const submitButton = contactForm.querySelector(
+            'button[type="submit"]'
+        );
 
-    const name =
-        document.getElementById("name").value.trim();
+        const originalButtonText = submitButton.textContent;
 
-    const email =
-        document.getElementById("email").value.trim();
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
-    const subject =
-        document.getElementById("subject").value.trim();
+        if (formStatus) {
+            formStatus.textContent = "Sending your message...";
+        }
 
-    const message =
-        document.getElementById("message").value.trim();
+        try {
 
+            const formData = new FormData(contactForm);
 
-    const emailBody =
-`Hello Sahad,
+            const response = await fetch(
+                contactForm.action,
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
 
-${message}
+            if (response.ok) {
 
-Regards,
-${name}
+                if (formStatus) {
+                    formStatus.textContent =
+                        "✓ Message sent successfully! Thank you for contacting me.";
+                }
 
-Contact Email:
-${email}`;
+                contactForm.reset();
 
+            } else {
 
-    const mailtoLink =
-        `mailto:sahadch2018@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                if (formStatus) {
+                    formStatus.textContent =
+                        "Unable to send the message. Please try again.";
+                }
+            }
 
+        } catch (error) {
 
-    window.location.href = mailtoLink;
+            if (formStatus) {
+                formStatus.textContent =
+                    "Unable to send the message. Please check your internet connection and try again.";
+            }
 
-});
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+
+        }
+
+    });
+
+}
 
 
 
